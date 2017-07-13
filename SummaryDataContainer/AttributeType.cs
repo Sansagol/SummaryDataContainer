@@ -11,6 +11,7 @@ namespace SummaryDataContainer
         None = 0,
         Age = 1,
         Name = 2,
-        AnyType = 3
+        AnyType = 3,
+        Weight = 4
     }
 }

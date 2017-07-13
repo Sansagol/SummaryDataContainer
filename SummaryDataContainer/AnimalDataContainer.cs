@@ -13,6 +13,7 @@ namespace SummaryDataContainer
         public AnimalDataContainer(Dog dog)
         {
             _Dog = dog ?? throw new ArgumentNullException(nameof(dog));
+            _AttrType = AttributeType.AnyType;
         }
 
         public static implicit operator Dog(AnimalDataContainer dt)

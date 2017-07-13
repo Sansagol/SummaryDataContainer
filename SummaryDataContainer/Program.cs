@@ -13,10 +13,12 @@ namespace SummaryDataContainer
             List<DataContainer> containers = new List<DataContainer>();
             containers.Add(OldMethod());
             containers.Add(NextOldMethod());
+            containers.Add(OldMethodOtherType());
             containers.Add(NewMethod());
 
             int iValue = containers.First(c => c.AttrType == AttributeType.Age);
             string sValue = containers.First(c => c.AttrType == AttributeType.Name);
+            float fValue = containers.First(c => c.AttrType == AttributeType.Weight);
 
             Dog dValue = containers.First(c => c.AttrType == AttributeType.AnyType) as AnimalDataContainer;
         }
@@ -24,15 +26,21 @@ namespace SummaryDataContainer
         private static DataContainer OldMethod()
         {
             DataContainer container = new DataContainer(12);
-            DataContainer nextContainer = new DataContainer("Apple");
             return container;
         }
 
         private static DataContainer NextOldMethod()
         {
-            DataContainer nextContainer = new DataContainer("Apple");
-            return nextContainer;
+            DataContainer container = new DataContainer("Apple");
+            return container;
         }
+
+        private static DataContainer OldMethodOtherType()
+        {
+            DataContainer container = new DataContainer(3.5f);
+            return container;
+        }
+
 
         private static AnimalDataContainer NewMethod()
         {

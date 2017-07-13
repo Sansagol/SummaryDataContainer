@@ -13,6 +13,7 @@ namespace SummaryDataContainer
 
         private string StrData = null;
         private int? IntData = null;
+        private object ObjData = null;
 
         protected DataContainer()
         {
@@ -31,6 +32,12 @@ namespace SummaryDataContainer
             _AttrType = AttributeType.Age;
         }
 
+        public DataContainer(object value)
+        {
+            ObjData = value;
+            _AttrType = AttributeType.Weight;
+        }
+
         public static implicit operator int(DataContainer dt)
         {
             if (dt.IntData.HasValue)
@@ -43,6 +50,15 @@ namespace SummaryDataContainer
         public static implicit operator string(DataContainer dt)
         {
             return dt.StrData;
+        }
+
+        public static implicit operator float(DataContainer dt)
+        {
+            try
+            {
+                return (float)dt.ObjData;
+            }
+            catch { return 0f; }
         }
     }
 }
